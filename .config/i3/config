@@ -30,8 +30,19 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -cd "`~/bin/xcwd/xcwd`"
+bindsym $mod+Return exec urxvtc -cd "`~/bin/xcwd/xcwd`"
 # bindsym $mod+Return exec ~/bin/xcwd/xcwd > test.txt # test xcwd
+
+# file manager
+# bindsym $mod+z exec --no-startup-id urxvtc -name floating_ranger -e "ranger"
+for_window [class="URxvt" instance="floating_ranger"] floating enable
+for_window [class="URxvt" instance="floating_ranger"] resize set 954 526
+for_window [class="URxvt" instance="floating_ranger"] move position center
+# start file manager and move it to the scratchpad
+exec --no-startup-id urxvtc -name floating_ranger -e "ranger"
+exec [class="URxvt" instance="floating_ranger"] move scratchpad
+bindsym $mod+z [class="URxvt" instance="floating_ranger"] scratchpad show
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -56,7 +67,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h left
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
@@ -171,7 +182,7 @@ gaps inner 5
 bindsym $mod+Escape exec xset dpms force off # turn off screen
 
 # start programs
-exec --no-startup-id chromium
+exec --no-startup-id firefox-developer-edition
 
 # sound ticking fix
 exec aplay -d 1 &
