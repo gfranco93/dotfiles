@@ -40,7 +40,7 @@ for_window [class="URxvt" instance="floating_ranger"] resize set 954 526
 for_window [class="URxvt" instance="floating_ranger"] move position center
 # start file manager and move it to the scratchpad
 exec --no-startup-id urxvtc -name floating_ranger -e "ranger"
-exec [class="URxvt" instance="floating_ranger"] move scratchpad
+exec --no-startup-id "i3-msg '[class=\"URxvt\" instance=\"floating_ranger\"] move scratchpad'"
 bindsym $mod+z [class="URxvt" instance="floating_ranger"] scratchpad show
 
 
