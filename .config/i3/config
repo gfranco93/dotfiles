@@ -38,10 +38,11 @@ bindsym $mod+Return exec urxvtc -cd "`~/bin/xcwd/xcwd`"
 for_window [class="URxvt" instance="floating_ranger"] floating enable
 for_window [class="URxvt" instance="floating_ranger"] resize set 954 526
 for_window [class="URxvt" instance="floating_ranger"] move position center
-# start file manager and move it to the scratchpad
+for_window [instance="floating_ranger"] move scratchpad
+# start file manager
 exec --no-startup-id urxvtc -name floating_ranger -e "ranger"
-[class="URxvt" instance="floating_ranger"] move scratchpad
 bindsym $mod+z [class="URxvt" instance="floating_ranger"] scratchpad show
+
 
 
 # kill focused window
