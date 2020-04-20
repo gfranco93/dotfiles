@@ -10,6 +10,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $display-left = HDMI-0
+set $display-right = DVI-I-0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -136,6 +138,14 @@ bindsym $mod+Shift+i move container to workspace 5
 bindsym $mod+Shift+o move container to workspace 6
 bindsym $mod+Shift+p move container to workspace 7
 bindsym $mod+Shift+bracketleft move container to workspace 8
+
+# bind workspaces to displays
+workspace 1 output $display-left
+workspace 2 output $display-right
+workspace 3 output $display-left
+workspace 4 output $display-left
+workspace 5 output $display-right
+workspace 6 output $display-right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
