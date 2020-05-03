@@ -1,0 +1,7 @@
+configuration {
+  modi: "run";
+  theme: "DarkBlue";
+  font: "hack 11";
+  combi-modi: "window,drun,ssh";
+}
+
